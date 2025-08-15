@@ -1,0 +1,8 @@
+{
+    "VoilaConfiguration": {
+        "file_whitelist": [".*"],
+        "theme": "dark",
+        "preheat_kernel": false,
+        "default_pool_size": 1
+    }   
+}
