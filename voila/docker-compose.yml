@@ -1,4 +1,3 @@
-version: "3.8"
 services:
   waterfowlenergy:
     container_name: waterfowlenergy
@@ -9,11 +8,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1.50'
-          memory: 7168M
+          cpus: '2.0'
+          memory: 5g
     ports:
       - '9001:9000'
     volumes:
       - ./WaterfowlEnergyDuckdb_voila.ipynb:/app/WaterfowlEnergyDuckdb_voila.ipynb
       - ./voila.json:/app/voila.json
-    command: voila --port 9000 --Voila.ip='0.0.0.0' --no-browser WaterfowlEnergyDuckdb_voila.ipynb
+    command: voila --port 9000 --Voila.ip='0.0.0.0' --no-browser --MappingKernelManager.cull_idle_timeout=600 --MappingKernelManager.cull_interval=120 --MappingKernelManager.cull_busy=False WaterfowlEnergyDuckdb_voila.ipynb
